@@ -1,3 +1,3 @@
 # ImprovementofGameSlice
 
-Contorls 
+Controls 
