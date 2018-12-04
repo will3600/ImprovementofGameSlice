@@ -1,1 +1,3 @@
 # ImprovementofGameSlice
+
+Contorls 
