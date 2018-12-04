@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 moveVector;
     private float gravity = 12.0f;
     private float verticalVelocity = 0.0f;
-    private float jumpForce = 4.5f;
+    private float jumpForce = 4.0f;
 
     private float animationDuration = 1.0f;
     private float startTime;
@@ -76,6 +76,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    // Controls speed in relation to diffiuclty level 
     public void SetSpeed(float modifier)
     {
         speed = 5.0f + modifier;

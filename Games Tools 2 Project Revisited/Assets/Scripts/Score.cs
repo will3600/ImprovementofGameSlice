@@ -5,12 +5,17 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-
+    // Holds the score
     private float score = 0.0f;
 
+    // Beginning diffiuclty level 
     private int difficultyLevel = 1;
-    private int maxDifficultyLevel = 5;
-    private int scoreToNextLevel = 60;
+
+    // Max difficulty level
+    private int maxDifficultyLevel = 10;
+
+    // Score needed for next level
+    private int scoreToNextLevel = 40;
 
     private bool isDead = false;
 
@@ -23,23 +28,31 @@ public class Score : MonoBehaviour
         if (isDead)
             return;
 
+        // Goes to next level if the score is higher then the next level
         if (score >= scoreToNextLevel)
             LevelUp();
 
-        score += Input.GetAxis("Vertical")/10 * difficultyLevel;
+        // Players Y value diveded by 10 multiplied by difficulty level is added to the score 
+        score += Input.GetAxis("Vertical") /10 * difficultyLevel;
+        // Score is cast into an int and so written in scoresaver on screen when playing
         scoreText.text = ((int)score).ToString();
     }
 
+    // Level up function
     void LevelUp()
     {
+        // Prevents going over difficulty level
         if (difficultyLevel == maxDifficultyLevel)
             return;
 
+        // Multiplies score to next value by 2. e.g 10 * 2 = 20. 20 * 2 = 40, etc.
         scoreToNextLevel *= 2;
         difficultyLevel++;
 
+        // Calls speed function in PlayerMove script
         GetComponent<PlayerMove>().SetSpeed(difficultyLevel);
-
+        
+        // Just to show what difficulty level you make it to
         Debug.Log(difficultyLevel);
     }
 
