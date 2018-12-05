@@ -59,6 +59,13 @@ public class Score : MonoBehaviour
     public void OnDeath()
     {
         isDead = true;
+
+        // Makes it so that it does not save a lower score then your highscore
+        if (PlayerPrefs.GetFloat("Highscore") < score)
+        
+            // Saves Score
+            PlayerPrefs.SetFloat("Highscore", score);
+            
         deathMenu.ToggleEndMenu(score);
     }
 }
