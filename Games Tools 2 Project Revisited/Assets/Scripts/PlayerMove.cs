@@ -42,6 +42,8 @@ public class PlayerMove : MonoBehaviour
         if (controller.isGrounded)
         {
             verticalVelocity = -gravity * Time.deltaTime;
+
+            // When jump is activated, character jumps
             if (Input.GetButtonDown("Jump"))
             {
                 verticalVelocity = jumpForce;
@@ -50,6 +52,7 @@ public class PlayerMove : MonoBehaviour
         else
         { 
           {
+            // Brings the character back down to the ground
             verticalVelocity -= gravity * Time.deltaTime;
           }
         }
@@ -69,10 +72,12 @@ public class PlayerMove : MonoBehaviour
         if (moveVector.z != 0)
         {
             anim.SetBool("isRunning", true);
+            anim.SetBool("isIdle", false);
         }
         else
         {
             anim.SetBool("isRunning", false);
+            anim.SetBool("isIdle", true);
         }
     }
 
