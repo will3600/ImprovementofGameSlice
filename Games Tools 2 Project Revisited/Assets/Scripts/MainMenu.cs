@@ -8,17 +8,11 @@ public class MainMenu : MonoBehaviour
 {
     public Text highscoreText;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-        // Writes Highscore + whatever your highscore is on the main menu screen
-        highscoreText.text = "Highscore: " + ((int)PlayerPrefs.GetFloat ("Highscore")).ToString();
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        
+        // Writes whatever your highscore is on the main menu screen
+        highscoreText.text = "Highscore " + ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
     }
 
     public void ToGame()

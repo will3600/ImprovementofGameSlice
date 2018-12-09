@@ -17,9 +17,13 @@ public class Score : MonoBehaviour
     // Score needed for next level
     private int scoreToNextLevel = 40;
 
+    // isDead false when you have not hit a collider
     private bool isDead = false;
 
+    // Access to the public field on the player 
     public Text scoreText;
+
+    // Access to the public field on the player 
     public DeathMenu deathMenu;
 
 	// Update is called once per frame
@@ -34,7 +38,8 @@ public class Score : MonoBehaviour
 
         // Players Y value diveded by 10 multiplied by difficulty level is added to the score 
         score += Input.GetAxis("Vertical") /10 * difficultyLevel;
-        // Score is cast into an int and so written in scoresaver on screen when playing
+        
+        // Score is cast into an int and so written in the scoresaver on screen when playing
         scoreText.text = ((int)score).ToString();
     }
 
@@ -58,6 +63,7 @@ public class Score : MonoBehaviour
 
     public void OnDeath()
     {
+        // isDead true when you do hit a collider
         isDead = true;
 
         // Makes it so that it does not save a lower score then your highscore
@@ -66,6 +72,7 @@ public class Score : MonoBehaviour
             // Saves Score
             PlayerPrefs.SetFloat("Highscore", score);
             
+        // When the player dies, the death menu pops up
         deathMenu.ToggleEndMenu(score);
     }
 }
