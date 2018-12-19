@@ -10,18 +10,11 @@ public class IKControl : MonoBehaviour {
     public Transform rightHandobj = null;
     public Transform leftHandobj = null;
 
-    //public bool useIK;
-
     public bool leftHandIK;
     public bool rightHandIK;
 
     public Vector3 leftHandPos;
     public Vector3 rightHandPos;
-
-    /*
-    public Quaternion leftHandRot;
-    public Quaternion rightHandRot;
-    */
 
     // Use this for initialization
     void Start ()
@@ -42,28 +35,14 @@ public class IKControl : MonoBehaviour {
 
                 leftHandIK = true;
                 leftHandPos = LHit.point;
-                //leftHandRot = Quaternion.FromToRotation(Vector3.up, transform.forward);
 
                 if (ikActive = true)
                 {
                     if (leftHandobj != null)
                     {
+                        // Brings the left hand up towards the wall
                         animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
                         animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
-                        /*
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandIndex, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandIndex, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandMiddle1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandMiddle1, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandPinky1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandPinky1, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandRing1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandRing1, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandThumb1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandThumb1, 1);
-                        */
-
-
                         animator.SetIKPosition(AvatarIKGoal.LeftHand, leftHandobj.position);
                         animator.SetIKRotation(AvatarIKGoal.LeftHand, leftHandobj.rotation);
                     }
@@ -89,33 +68,9 @@ public class IKControl : MonoBehaviour {
                 {
                     if (rightHandobj != null)
                     {
+                        // Brings the right hand up towards the wall
                         animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
                         animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
-                        /*
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandIndex, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandIndex, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandMiddle1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandMiddle1, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandPinky1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandPinky1, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandRing1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandRing1, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandThumb1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandThumb1, 1);
-
-                        animator.SetIKPosition(AvatarIKGoal.RightHandIndex, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandIndex, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandMiddle1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandMiddle1, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandPinky1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandPinky1, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandRing1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandRing1, 1);
-                        animator.SetIKPositionWeight(AvatarIKGoal.RightHandThumb1, 1);
-                        animator.SetIKRotationWeight(AvatarIKGoal.RightHandThumb1, 1);
-                        */
-
-
                         animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandobj.position);
                         animator.SetIKRotation(AvatarIKGoal.RightHand, rightHandobj.rotation);
                     }
